@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	imageToCatch = imread("C:/Users/Shark Byte/Downloads/cover2.jpg", IMREAD_COLOR);
+	imageToCatch = imread("C:/Users/Shark Byte/Downloads/cover2.jpg", IMREAD_GRAYSCALE);
 	//resize(imageToCatch, imageToCatch, Size(), 0.5, 0.5);
 	if (imageToCatch.empty()) { //verifica a imagem para captura
 		cout << "Nenhuma imagem para captura";
@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
 			return 1;
 		}
 		//resize(sceneImage, sceneImage, Size(), 0.4, 0.4);
-		//cvtColor(sceneImage, sceneImage, COLOR_BGR2GRAY);//coloca em grayscale
+		cvtColor(sceneImage, sceneImage, COLOR_BGR2GRAY);//coloca em grayscale
 		detector->detectAndCompute(sceneImage, noArray(), kpScene, descriptorScene);
 		//detector->setMaxFeatures(kpScene.size());
 		vector<vector<DMatch>> matches;
